@@ -3,8 +3,8 @@ module.exports = {
   outputDir: 'duan', // 打包输出的文件夹名
   devServer: {
     proxy: {
-      '/api': { // 路径中有 /api 的请求都会走这个代理
-        target: 'http://192.144.210.195:8000/', // 要访问的接口域名
+      '^/api/(.*)$': { // 路径中有 /api 的请求都会走这个代理
+        target: 'http://127.0.0.1:5000/', // 要访问的接口域名
         ws: true, // 是否启用  websockets
         // secure: false,
         changeOrigin: true,
@@ -12,7 +12,7 @@ module.exports = {
         // 然后发送请求的数据，并同时接收请求的数据，
         // 这样服务端和服务端进行数据的交互就不会有跨域问题
         pathRewrite: {
-          '^/api': '' // 这里理解成用/api代替target里面的地址，即去掉路径中的/api  的这一截
+          '^/api/(.*)$': '$1' // 这里理解成用/api代替target里面的地址，即去掉路径中的/api  的这一截
         }
       }
     }
