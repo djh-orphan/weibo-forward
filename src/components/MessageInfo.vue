@@ -3,14 +3,14 @@
     <div class="row p-3 mb-3 border-bottom boder-5">
       <div class="col-12 pr-3">
         <p class="fs-6 text-start text-wrap fw-bold">
-          用户{{username}}:
+          {{username}}:
         </p>
         <p class="fs-6 text-bottom mr-3 text-start fw-light" style="color: #6C757D;">
           {{caldate}}
         </p>
       </div>
       <div class="col-12 p-2">
-        <p class="text-wrap text-break  text-start fw-normal lh-base font-monospace">
+        <p class="text-wrap text-break fs-5 text-start fw-normal lh-base font-monospace">
           {{msg}}
         </p>
       </div>
@@ -34,7 +34,7 @@
           </p>
         </div>
         <div class="col-6 pt-3 text-end">
-          <a type="button" @click="$emit('routeMessage')">查看更多</a>
+          <a type="button" @click="$emit('routeMessage')" class="link-primary" >查看更多>></a>
         </div>
       </div>
     </div>
@@ -64,17 +64,17 @@
         return this.prefix(this.date[0][0], 4) +
           "-" + this.prefix(this.date[0][1], 2) +
           "-" + this.prefix(this.date[0][2], 2) +
-          " " + this.prefix(this.date[0][0], 2) +
-          ":" + this.prefix(this.date[0][1], 2) +
-          ":" + this.prefix(this.date[0][2], 2)
+          " " + this.prefix(this.date[1][0], 2) +
+          ":" + this.prefix(this.date[1][1], 2) +
+          ":" + this.prefix(this.date[1][2], 2)
       },
       calrefdate() {
         return this.prefix(this.refmessage.message_date[0][0], 4) +
           "-" + this.prefix(this.refmessage.message_date[0][1], 2) +
           "-" + this.prefix(this.refmessage.message_date[0][2], 2) +
-          " " + this.prefix(this.refmessage.message_date[0][0], 2) +
-          ":" + this.prefix(this.refmessage.message_date[0][1], 2) +
-          ":" + this.prefix(this.refmessage.message_date[0][2], 2)
+          " " + this.prefix(this.refmessage.message_date[1][0], 2) +
+          ":" + this.prefix(this.refmessage.message_date[1][1], 2) +
+          ":" + this.prefix(this.refmessage.message_date[1][2], 2)
       },
     },
     methods: {

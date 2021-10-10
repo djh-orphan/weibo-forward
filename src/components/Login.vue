@@ -7,7 +7,7 @@
     </div>
     <div class="col-12">
       <label class="form-label">密码</label>
-      <input type="text" class="form-control" placeholder="密码" id="pwd" :value="pwd"
+      <input type="password" class="form-control" placeholder="密码" id="pwd" :value="pwd"
         @input="$emit('update:pwd', $event.target.value)">
     </div>
     <div class="col-9">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-3">
-      <a class="link-primary" href="#"> 注册</a>
+      <a type="button" class="link-primary" @click="$emit('signup')"> 注册</a>
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary" @click.prevent="$emit('login')">登录</button>
@@ -33,7 +33,7 @@
       username: String,
       pwd: String
     },
-    emits: ['update:username', 'update:pwd', 'login'],
+    emits: ['update:username', 'update:pwd', 'login', 'signup'],
   }
 </script>
 <style>

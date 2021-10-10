@@ -2,8 +2,8 @@
   <div :id="msgid" class="position-relative ">
     <div class="row bg-light p-3 mb-3 border-bottom boder-5">
       <div class="col-3 pr-3">
-        <p class="fs-6 text-start text-wrap fw-bold">
-          用户{{username}}:
+        <p class="fs-6 text-start text-break text-wrap fw-bold">
+          {{username}}:
         </p>
       </div>
       <div class="col pl-3">
@@ -61,14 +61,15 @@
       msgid: Number,
       date: Array,
       msg: String,
-      username: String,
+      user: Object,
       commcount: Number,
       reference: Boolean,
       refmessage: Object
     },
     data() {
       return {
-        messageID: this.msgid
+        messageID: this.msgid,
+        username: this.user.username
       }
     },
     computed: {
@@ -76,17 +77,17 @@
         return this.prefix(this.date[0][0], 4) +
           "-" + this.prefix(this.date[0][1], 2) +
           "-" + this.prefix(this.date[0][2], 2) +
-          " " + this.prefix(this.date[0][0], 2) +
-          ":" + this.prefix(this.date[0][1], 2) +
-          ":" + this.prefix(this.date[0][2], 2)
+          " " + this.prefix(this.date[1][0], 2) +
+          ":" + this.prefix(this.date[1][1], 2) +
+          ":" + this.prefix(this.date[1][2], 2)
       },
       calrefdate() {
         return this.prefix(this.refmessage.message_date[0][0], 4) +
           "-" + this.prefix(this.refmessage.message_date[0][1], 2) +
           "-" + this.prefix(this.refmessage.message_date[0][2], 2) +
-          " " + this.prefix(this.refmessage.message_date[0][0], 2) +
-          ":" + this.prefix(this.refmessage.message_date[0][1], 2) +
-          ":" + this.prefix(this.refmessage.message_date[0][2], 2)
+          " " + this.prefix(this.refmessage.message_date[1][0], 2) +
+          ":" + this.prefix(this.refmessage.message_date[1][1], 2) +
+          ":" + this.prefix(this.refmessage.message_date[1][2], 2)
       },
     },
     methods: {

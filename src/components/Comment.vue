@@ -3,7 +3,7 @@
     <div class="row bg-light p-3 mb-3 border-bottom boder-5">
       <div class="col-3 pr-3">
         <p class="fs-6 text-start text-wrap fw-bold">
-          用户{{username}}:
+          {{username}}:
         </p>
       </div>
       <div class="col-9 pl-3">
@@ -31,12 +31,17 @@
     },
     computed: {
       caldate() {
-        return this.date[0][0].toString() +
-          "-" + this.date[0][1].toString() +
-          "-" + this.date[0][2].toString() +
-          " " + this.date[1][0].toString() +
-          ":" + this.date[1][1].toString() +
-          ":" + this.date[1][2].toString()
+        return this.prefix(this.date[0][0], 4) +
+          "-" + this.prefix(this.date[0][1], 2) +
+          "-" + this.prefix(this.date[0][2], 2) +
+          " " + this.prefix(this.date[1][0], 2) +
+          ":" + this.prefix(this.date[1][1], 2) +
+          ":" + this.prefix(this.date[1][2], 2)
+      }
+    },
+    methods: {
+      prefix(num, length) {
+        return (Array(length).join('0') + num).slice(-length);
       }
     }
   }
